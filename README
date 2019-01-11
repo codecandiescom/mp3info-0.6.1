@@ -1,0 +1,153 @@
+MP3info	- Adds, deletes, or changes MP3 ID3 tags.
+
+
+ABOUT
+=====
+
+Q: What's MP3Info?
+
+A: MP3Info is a little utility used to read and modify the ID3 tags in MPEG 
+layer 3 (MP3) files.  In case you don't know, MP3 is a very popular digital 
+audio format which encodes a recording with a lossy compression algorithm 
+resulting in files representing a minute of near-CD quality stereo sound in 
+less than a megabyte of data.   An ID3 tag is a little scrap of data added to 
+the end of the MP3 file which stores information about the audio recording 
+including the title, artist, album, copyright date, and musical genre.  
+
+
+HISTORY
+=======
+
+MP3Info was originally written by Ricardo Cerqueira <rmc@rccn.net>.  As of 
+January 2000, MP3Info is being maintained by Cedric Tefft 
+<cedric@earthling.net>.  If you have any bug reports or patches, please email 
+them to me.  Bugs get fixed a lot faster if you include patches -- especially 
+if the problem is platform specific.
+
+
+PORTABILITY
+===========
+
+MP3Info was developed under Linux, but should work on most UN*X variants.
+Included with the text-based version is a gui version which requires the GTK
+libraries (see http://www.gtk.org).  The console version runs in plain
+command-line and interactive curses mode.  The curses or ncurses library is
+required.
+
+
+INSTALLATION
+============
+
+Pretty basic.  After unpacking the archive run the following two commands:
+
+make
+make install 		(this command must be run by the root user)
+
+If you want to compile just the console or GTK version use 'make mp3info' or 
+'make gmp3info' (respectively).
+
+
+USAGE: Console Version
+======================
+
+mp3info [-h | -G] (-i | -d | -t title -a artist -l album -y year -c comment
+                             -g genre) MP3_FILE [ MP3_FILE [ ... ]]
+
+-h      --      Display this info and exit
+-G      --      Display genre list and exit
+-i      --      Edit ID3 tag interactively
+-d      --      Delete ID3 tag
+
+  Specify ID3 tag fields:
+
+-t  title      --     Track title
+-a  artist     --     Artist Name
+-l  album      --     Album Name
+-y  year       --     Copyright Year
+-c  comment    --     Comment
+-g  genre      --     Genre (use -G option for a list of valid genres)
+
+Non-specified fields, if existant, will remain unchanged.
+Genres can be specified as numbers or names: '-g 17' same as '-g Rock'
+Remember: Multiple word fields must be enclosed in "" (eg: -t "A title")
+
+Usage: GTK Version
+==================
+
+gmp3info song.mp3
+
+
+EXAMPLES
+========
+
+Display existing ID3 tag information (if any) in song.mp3
+
+	mp3info song.mp3
+
+Set the title, author and genre of song.mp3. (All other fields unchanged)
+
+	mp3info -t "Song Title" -a Author -g "Rock & Roll" song.mp3
+
+Set the album field of all MP3 files in the current directory 
+to "The White Album"
+
+	mp3info -a "The White Album" *.mp3
+
+Delete the ID3 tag from song1.mp3 and song2.mp3
+
+	mp3info -d song1.mp3 song2.mp3
+
+
+KNOWN BUGS
+==========
+
+There's no "save and quit" in interactive mode. You must fill in all the 
+fields (even if it is with blanks) and let the program finish by itself. 
+CTRL+C does leave MP3info, but the data isn't saved.
+
+Using space to erase tags in interactive mode does not work correctly if you 
+then backspace over the deleted text.
+
+Some valid MP3 files are rejected as being invalid. This is a thorny one.  If 
+you figure it out, please let me know.
+
+
+KNOWN LIMITATIONS
+=================
+
+The title, author, and album fields are limited to 30 characters.  This is a 
+limitation of the ID3 tag format, not MP3Info.
+
+Genres cannot be specified arbitrarily.  They must be specified from a 
+pre-determined list (use mp3info -G to see that list).  Again, this is a 
+limitation of the ID3 tag format.
+
+
+MISCELLANEOUS NEWS & INFO
+=========================
+
+MP3Info is looking for a new name!  Several people have pointed out that there 
+are other, older programs out there called mp3info which arguably have more of 
+a "right" (in as much as such a thing exists in the open source world) to the 
+name than this program.  Name suggestions, like bug reports, are happily 
+accepted.
+
+
+DISCLAIMER
+==========
+
+I do not take responsibility for damaged files, MP3s or not. If you decide to 
+run this on something other than an MP3, tough luck. You're on your own. It 
+shouldn't cause any damage, but if it does, blame yourself!
+
+
+TO DO
+=====
+
+Fix the known bugs? :-)
+
+Add an "Open file" option to GMP3info.
+
+
+
+					- Cedric Tefft <cedric@earthling.net>

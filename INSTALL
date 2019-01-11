@@ -1,0 +1,17 @@
+Installing MP3info:
+
+	Just decompress and untar the source (which you should have done by now, if you're reading this...), then type:
+
+	make 
+	make install
+
+	or if you only want one of them...
+
+	make mp3info (console) || make gmp3info (X)
+	make install
+
+	... and that's it. There should be a binary named mp3info and/or another named gmp3info in your /usr/local/bin
+
+	Check README for usage instructions.
+
+

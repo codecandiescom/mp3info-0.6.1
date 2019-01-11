@@ -1,0 +1,57 @@
+v0.6.1  - Fixed a bug that set genre to 'Blues' if no genre was given on the command 
+	  line and the MP3 file did not have an existing ID3 tag.
+
+v0.6	- As of this version maintenance of mp3info taken over by Cedric Tefft <cedric@earthling.net>
+	- Reworked command-line/curses version to handle processing multiple MP3's.
+	- Added -d (delete ID3 tag) switch
+	- Added full text/numeric genre handling to command-line, curses and GTK modes.
+	- Added -G option (display genre table)
+	- View mode is now determined automatically when no other options are specified.  
+	  The -v option is accepted for backward compatibility, but ignored.  It 
+	  should probably be removed in a future version.
+	- Added ID3 structure to make internal argument passing a little cleaner.
+	- Consolidated ID3 tag reading/writing code.
+	- Interactive mode now displays existing tags.
+	- Modified Makefile to make gmp3info dependant on gmp3info.c
+
+v0.5	- Added genre tag. (Still in numerical form) (Thanks to jsc@arsdigita.com)
+	- Corrected a byte ordering bug which affected Sun systems (Thanks to Benjamin Korvemaker)
+	- Corrected a permissions bug (Thanks to Carsten Hahn)
+	- Fixed a GTK bug in gmp3info. (Thanks go to Thomas Schultz)
+v0.4	- gmp3info is now part of the pack.
+	  Fixed some incompatibity problems with SGI (thanks again to Petter) and RedHat 6.0.
+	- Added MP3 check, using the magic number (Thanks to Steven James for this one)
+
+v0.3.1	- Fixed a couple of HP/UX incompatibilities (Thanks to Petter Reinholdtsen)
+	- Added -v (to view an existing tag)
+
+v0.3	- Fixed "trash in the fields" bug. (Strings are now forced to be null-terminated)
+	  Updated help screen.
+	  Fixed minor warnings during compile.
+	  If "-h" is among options, others are now ignored.
+	  "-i" now must be specified for interactive (curses) mode.
+	  Commented and cleaned code.
+
+v0.3-b1 - Added reading and preservation of existing tags in command line mode.
+	  Fixed occasional tag seek bug.
+	  Changed options parsing to use "getopt"
+
+v0.3-a1 - Merged the command line version back in.
+	  Fixed "tag appending instead of overwriting" bug
+
+v0.2-b1 - Fixed "non-existant file is created" bug.
+	  Added a help screen
+	  Field lengths became constants.
+
+v0.2-a2	- A few minor bugfixes.
+	- Added ^C support (terminal was going crazy if the program was interrupted)
+	- Added flexible window size (window width is always equal to terminal width)
+
+v0.2-a1	- Not released
+	- curses version. Weeeeeee! (Way better :-) )
+
+v0.1.1  - Not released
+	- Added support for the "Year" and "Comment" fields.
+	- Fixed quite a few overflow problems
+
+v0.1 	- Initial version. Never released
